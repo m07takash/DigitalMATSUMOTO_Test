@@ -1,0 +1,26 @@
+{
+    "DEFAULT": {
+        "REQUIREMENT": "シンプルに回答することを求められている",
+        "SPELL": ["回答してください"],
+        "NAME": "デジタルMATSUMOTO",
+        "ROLE": "AIの専門家である松本敬史のデジタルツインAI",
+        "CHARACTER": "DigitalMATSUMOTO_ALO.txt",
+        "PROMPT_TEMPLATE": {
+            "PROMPT_FORMAT": "No Template",
+            "WRITING_STYLE": "Polite Form"
+        },
+        "MODEL_CHAT": "GPT-4-OMNI",
+        "RAG_KNOWLEDGE": {
+            "DATA": ["DigiMATSU_Opinion_INP_Point"],
+            "FORMAT": "Knowledge Template(Point)",
+            "TEXT_LIMITS": 10000,
+            "DISTANCE_LOGIC": "Cosine"
+        },
+        "RAG_POLICY": {
+            "DATA": ["DigiMATSU_POLICY"],
+            "FORMAT": "Policy Template",
+            "TEXT_LIMITS": 2000,
+            "DISTANCE_LOGIC": "Cosine"
+        }
+    }
+}

@@ -1,0 +1,167 @@
+{
+    "LLM_API_KEYS": {
+        "OPENAI_API_KEY": "OPENAIのAPIキーを設定"
+    },
+    "AWS_KEYS": {
+        "IAM_ACCESS_KEY": "IAMのアクセスキーを設定",
+        "IAM_SECRET_KEY": "IAMのシークレットキーを設定",
+        "AWS_REGION": "AWSのリージョンを設定",
+        "S3_BUCKET_NAME": "S3のバケット名を設定"
+    },
+    "NOTION": {
+        "NOTION_VERSION": "2022-06-28",
+        "NOTION_TOKEN": "NOTIONのトークンキー",
+        "DigiMATSU_Opinion": "NOTIONデータベースのID"
+    },
+    "NLP_CHUNK": {
+        "GRAMMER": ["名詞", "動詞", "形容詞"],
+        "STOP_WORDS": ["(", ")", ":", "<", ">", "Doc", "Source", "id", "、", "。", "【", "】", "あっ", "あの", "あり", "ある", "あれ", "あれら", "い", "いる", "お", "おり", "か", "から", "が", "くん", "こと", "この", "これ", "これら", "さ", "さん", "し", "しかし", "します", "する", "ず", "せ", "その", "その後", "それ", "それら", "た", "ため", "だ", "だっ", "て", "で", "できる", "です", "と", "という", "として", "どの", "どれ", "な", "ない", "なかっ", "なく", "なっ", "など", "なり", "なる", "に", "において", "について", "によって", "により", "による", "の", "は", "ば", "へ", "ます", "また", "まで", "も", "もの", "や", "よう", "より", "られ", "られる", "れ", "れる", "を", "・", "化", "君", "氏", "的", "等", "（", "）"]
+    },
+    "DISTANCE_LOGICS": ["Cosine", "Euclidean", "Manhattan", "Chebychev"],
+    "MEMORY": {
+        "AGENTS": ["BOTH", "user", "assistant"],
+        "LOADERS": ["LATEST", "EARLIEST", "SIMILAR_VEC"],
+        "FORMATS": {
+            "Memory Template": "・{timestamp}[類似度：{similarity}]{user}：{text}<br>"
+        }
+    },
+    "MODELS_CHAT": {
+        "GPT-4-OMNI": {
+            "API_KEY": "OPENAI_API_KEY",
+            "MODEL_NAME": "gpt-4o-2024-08-06",
+            "FUNC_NAME": "generate_response_T_gpt",
+            "PARAMETER": {"temperature": 0.7}
+        },
+        "GPT-4-OMNI-MINI": {
+            "API_KEY": "OPENAI_API_KEY",
+            "MODEL_NAME": "gpt-4o-mini",
+            "FUNC_NAME": "generate_response_T_gpt",
+            "PARAMETER": {"temperature": 0.7}
+        },
+        "GPT-4-TURBO": {
+            "API_KEY": "OPENAI_API_KEY",
+            "MODEL_NAME": "gpt-4-turbo-preview",
+            "FUNC_NAME": "generate_response_T_gpt",
+            "PARAMETER": {"temperature": 0.7}
+        },
+        "GPT-3.5-TURBO": {
+            "API_KEY": "OPENAI_API_KEY",
+            "MODEL_NAME": "gpt-3.5-turbo-0125",
+            "FUNC_NAME": "generate_response_T_gpt",
+            "PARAMETER": {"temperature": 0.7}
+        },
+        "GEMINI-PRO": {
+            "API_KEY": "GEMINI_API_KEY",
+            "MODEL_NAME": "gemini-pro",
+            "FUNC_NAME": "generate_response_T_gemini",
+            "PARAMETER": {"temperature": 0.7}
+        }
+    },
+    "MODELS_VISION": {
+        "GPT-4-VISION": {
+            "MODEL_NAME": "gpt-4-vision-preview",
+            "FUNC_NAME": "",
+            "PARAMETER": {}
+        },
+        "GEMINI-PRO-VISION": {
+            "MODEL_NAME": "gemini-pro-vision",
+            "FUNC_NAME": "",
+            "PARAMETER": {}
+        }
+    },
+    "PERSONAS": {
+        "DigitalMATSUMOTO": {
+            "AGENT_FILE": "agent_env_DigitalMATSUMOTO.json",
+            "DEFAULT_MODE": "DEFAULT"
+        }
+    },
+    "PROMPT_TEMPLATE": {
+        "PROMPT_FORMAT": {
+            "No Template": "",
+            "Insight Template": "次の文章について、あなたの考えを考察してください。<br>・600字以上かつ1000字以下の日本語の文章で考察を作成してください。<br>・【知識情報】の引用や比較を行い、示唆のある検討を行ってください。<br>・与えられた文章について、ポジティブなのかネガティブなのかの立場を明確にしてください。<br>・与えられた文章の要約や言い換えではなく、あなた自身の考えに基づいて検討してください。<br>・あなた自身が考えるアイデアや意見も文章に関連することであれば、積極的に盛り込んでください。<br>・ただし、あなた自身の紹介や自慢話は含めないでください。<br>・最終的に以下を出力してください。<br> -考察(600文字以上かつ1000文字以下)<br> -参照した【知識情報】と参考にした点(箇条書き)<br><br>--------------<br>[文章]<br>",
+            "Data Analytics":"次の文章について、あなたの考えを考察してください。<br>・600字以上かつ1000字以下の日本語の文章で考察を作成してください。<br><br>Step1.まずは与えられた情報を元に分析を行ってください。<br>・データを理解する時には量と割合のそれぞれを分析する必要があります。<br>・データ個別と部分集合もそれぞれ見ていくと良いです。<br>・データ以外に存在する制約も理解することが重要です。<br><br>Step2.分析結果を踏まえて考察を行ってください。<br>・ポジティブなのかネガティブなのかの立場を明確にしてください。<br>・【知識情報】の引用や比較を行い、示唆のある検討を行ってください。<br>・あなた自身が考えるアイデアや意見も関連することであれば、積極的に盛り込んでください。<br>・ただし、あなた自身の紹介や自慢話は含めないでください。<br><br>Step3.最終的に以下を出力してください。<br> -分析の概要と気づき<br> -考察(600文字以上かつ1000文字以下)<br> -参照した【知識情報】と参考にした点(箇条書き)<br><br>--------------<br>[文章]<br>",
+            "Ethical Check": "与えられたテキストについて、下記の【不適切な表現カテゴリ】の10項目で0~5の間で評価し、問題点を指摘してください。<br>出力形式は以下のフォーマットとします。<br><br>【不適切な表現カテゴリ】<br>1. 差別的な表現:0~5<br>2. 暴力的または攻撃的な内容:0~5<br>3. 性的な内容:0~5<br>4. 偽情報や誤情報:0~5<br>5. 機密情報の漏洩:0~5<br>6. 違法な内容:0~5<br>7. 不適切なジョークや冗談:0~5<br>8. 極端な意見:0~5<br>9. 自傷や自殺を助長する内容:0~5<br>10. 薬物の乱用を助長する内容:0~5<br><br>問題点:<br><br>-----<br><br>与えられたテキスト:<br>",
+            "Senryu Template": "与えられたテキストについて、特徴的なトピックを捉えた川柳を10個作成してください。<br>--------------<br>【川柳の特徴】<br>・川柳は17音節から成り、「5音節7音節5音節」の配分を目指して作成します<br>・一般人にとって分かりやすい表現を用いるので難しい漢字は使いません<br>・読んだ時のリズム感が重要です<br>・人間性、特に人間の欠点や社会的な愚かさに焦点を当てます<br>・ユーモアや皮肉が特徴であり、笑いや考えるきっかけを提供することがよくあります<br>・個人的な感情や経験よりも、より普遍的な観察に基づいて作られることが多いです<br>--------------<br>【主な川柳の例】<br>「直筆で　漢字書けない　Siriに聞く」（じきひつで　かんじかけない　しりにきく）<br>「英語書く　AI使えと　怒られる」（えいごかく　えーあいつかえと　おこられる）<br>「顔変換　皆の顔が　芸能人」（かおへんかん　みんなのかおが　げいのうじん）<br>「カメラにも　ゴミが入ると　誤認識」（かめらにも　ごみがはいると　ごにんしき）<br>「模様替え　ルンバのことも　考えて」（もようがえ　るんばのことも　かんがえて）<br>「接待は　アルファ碁だって　難しい」（せったいは　あるふぁごだって　むずかしい）<br>「アレクサは　ジョークがなかなか　秀逸だ」（あれくさは　じょーくがなかなか　しゅういつだ）<br>「まとまりない　議事録AI　見てわかる」（まとまりない　ぎじろくえーあい　みてわかる）<br>「自動運転　アクセル踏んでも　煽れない」（じどううんてん　あくせるふんでも　あおれない）<br>「レコメンド　家族の前では　見せないで」（れこめんど　かぞくのまえでは　みせないで）<br><br>--------------<br><br>与えられたテキスト:<br>"
+        },
+        "WRITING_STYLE": {
+            "Polite Form": "※文章は「です、ます」調で記載してください。",
+            "Plain Form": "※文章は「だ、である」調で記載してください。",
+            "Samurai Form": "※文章は「江戸時代の侍が使っていそうな口調」で記載してください。",
+            "Gal Form": "※文章は「ギャル語(渋谷で夜まで遊んでいる若いギャルが使うような口調)」で記載してください。",
+            "Otaku Form": "※文章は「オタク語(アニメやアイドルが大好きな秋葉原によくいるようなオタクの口調)」で記載してください。",
+            "Minatoku-joshi Form": "※文章は「港区女子の言葉(何かとマウンティングしたがる港区で経営者やタレントと飲み会ばかりしている中身のない女子が使うような口調)」で記載してください。"
+        }
+    },
+    "RAG": {
+        "DATA": {
+            "DigiMATSU_Opinion_INP_Point":{
+                "active": "Y",
+                "mode" : "notion",
+                "db" : "DigiMATSU_Opinion",
+                "item_dict": {
+                    "title": {"名前": "title"}, 
+                    "category": {"カテゴリ": "select"},
+                    "eval": {"評価": "select"},
+                    "generate_date": {"考察生成日": "date"}, 
+                    "search_text": {"インプット": "rich_text"}, 
+                    "text": {"論点": "rich_text"}, 
+                    "url": {"URL": "url"}, 
+                    "note": {
+                        "インプット": "rich_text", "考察_確定版": "rich_text", "リアル松本の指摘事項": "rich_text", "エシカルチェック": "rich_text", "川柳_選考結果": "rich_text"
+                    }
+                },
+                "context_item":[],
+                "chk_dict": {
+                    "確定Chk": true
+                },
+                "date_dict": {
+                    "考察生成日":["",""]
+                }
+            },
+            "DigiMATSU_Opinion_INP_Insight":{
+                "active": "Y",
+                "mode" : "notion",
+                "db" : "DigiMATSU_Opinion",
+                "item_dict": {
+                    "title": {"名前": "title"}, 
+                    "category": {"カテゴリ": "select"},
+                    "eval": {"評価": "select"},
+                    "generate_date": {"考察生成日": "date"}, 
+                    "search_text": {"インプット": "rich_text"}, 
+                    "text": {"考察_確定版": "rich_text"}, 
+                    "url": {"URL": "url"}, 
+                    "note": {
+                        "インプット": "rich_text", "論点": "rich_text", "リアル松本の指摘事項": "rich_text", "エシカルチェック": "rich_text", "川柳_選考結果": "rich_text"
+                    }
+                },
+                "context_item":["インプット","論点","リアル松本の指摘事項"],
+                "chk_dict": {
+                    "確定Chk": true
+                },
+                "date_dict": {
+                    "考察生成日":["",""]
+                }
+            },
+            "DigiMATSU_POLICY":{
+                "active": "Y",
+                "mode" : "csv",
+                "file_path": "user/common/csv/",
+                "file_names": ["digiMATSU_PolicyRAG.csv"]
+            }
+        },
+        "FORMAT": {
+            "Knowledge Template(Point)": {
+                "Header": "【知識情報】あなたは以前より以下の主張を行っていました。<br><br>",
+                "Data": "{title}<br>{days_difference}日前（質問との関連の近さ:{similarity}）<br>主な論点:<br>{text}<br><br>"
+            },
+            "Knowledge Template(Insight)": {
+                "Header": "【知識情報】<br>",
+                "Data": "・{days_difference}日前の知識（質問との関連の近さ:{similarity}）[{title}]{text}<br>"
+            },
+            "Policy Template": {
+                "Header": "【ポリシー】あなたは常に以下のポリシーに強く従って検討を行います。<br>",
+                "Data": "[{title}]{text}<br>"
+            }
+        }
+    }
+}
